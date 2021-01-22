@@ -1,16 +1,21 @@
+import { useState } from "react";
 import styled from "styled-components";
-import { NavLink as Link } from "react-router-dom";
 
 import { ReactComponent as Logo } from "../../assets/graphics/airbean-landing.svg";
 import { ReactComponent as TreeLeft } from "../../assets/graphics/intro-graphic-left.svg";
 import { ReactComponent as TreeRight } from "../../assets/graphics/intro-graphic-right.svg";
 
+import { Nav } from "../../components/Nav/Nav";
+
 export const Home = () => {
+  const [navOpen, setNavOpen] = useState(false);
+
+  const showNav = () => setNavOpen(!navOpen);
+
   return (
     <HomeContainer>
-      <NavLink to="/menu">
-        <Logo className="Landing-logo" />
-      </NavLink>
+      {navOpen && <Nav />}
+      <Logo className="Landing-logo" onClick={() => showNav()} />
       <TreeLeft className="Landing-logo-left" />
       <TreeRight className="Landing-logo-right" />
     </HomeContainer>
@@ -33,5 +38,3 @@ const HomeContainer = styled.div`
     right: 0;
   }
 `;
-
-const NavLink = styled(Link)``;
