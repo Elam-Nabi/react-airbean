@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 
 import { ReactComponent as Logo } from "../../assets/graphics/airbean-landing.svg";
@@ -6,11 +5,13 @@ import { ReactComponent as TreeLeft } from "../../assets/graphics/intro-graphic-
 import { ReactComponent as TreeRight } from "../../assets/graphics/intro-graphic-right.svg";
 
 import { Nav } from "../../components/Nav/Nav";
+import { useHooks } from '../../hooks/UseHooks'
+
 
 export const Home = () => {
-  const [navOpen, setNavOpen] = useState(false);
 
-  const showNav = () => setNavOpen(!navOpen);
+  const { navOpen, showNav } = useHooks();
+  
 
   return (
     <HomeContainer>
