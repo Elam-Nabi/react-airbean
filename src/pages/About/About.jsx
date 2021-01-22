@@ -4,15 +4,55 @@ import { Nav } from "../../components/Nav/Nav";
 import styled from "styled-components";
 import { FaHamburger } from "react-icons/fa";
 
+import { ReactComponent as TopTree } from "../../assets/graphics/graphics-header.svg";
+import { ReactComponent as DownTree } from "../../assets/graphics/graphics-footer.svg";
+import EvaPic from "../../assets/graphics/eva-cortado.jpg";
+
 export const About = () => {
   const { navOpen, showNav } = useHooks();
 
   return (
     <AboutContainer>
+      <TopTree />
       {navOpen && <Nav />}
+      <section className="text-container">
+        <h1>Our Coffee</h1>
+        <p className="first-p">
+          Pumpkin spice mug, barista cup, sit macchiato, kopi-luwak, doppio,
+          grounds dripper, crema, strong whipped, variety extra iced id lungo
+          half and half mazagran. Pumpkin spice.
+        </p>
+        <p className="second-p">
+          Que dark fair trade, spoon decaffeinated, barista wings whipped, as
+          rich aftertaste, con panna milk black, arabica white rich beans single
+          shot extra affogato. So affogato macchiato sit extraction instant
+          grinder seasonal organic, turkish single shot, single origin, and
+          robusta strong to go so dripper. Viennese froth, grounds
+          caramelization skinny aromatic cup kopi-luwak, fair trade flavour,
+          frappuccino medium, café au lait flavour cultivar ut bar instant
+          kopi-luwak.{" "}
+          <span>
+            Roast id macchiato, single shot siphon mazagran milk fair trade est
+            aroma a half and half and, so, galão iced to go, whipped as cream
+            cup pumpkin spice iced. At extra, rich grinder, brewed to go,
+            steamed half and half at, that, percolator macchiato trifecta and
+            body as arabica dripper. In galão black java milk sit trifecta,
+            robusta, acerbic café au lait instant shop latte. Seasonal bar shop
+            filter aroma id, crema, affogato viennese cultivar aftertaste,
+            seasonal, percolator cream black, galão flavour, milk aromatic
+            turkish skinny crema.
+          </span>
+        </p>
+      </section>
       <div className="hamburger" onClick={() => showNav()}>
         <FaHamburger className="hamburger-icon" />
       </div>
+      <DownTree className="down-tree" />
+      <aside>
+        <img src={EvaPic} alt="eva" />
+        <h1>Eva Cortado</h1>
+        <h6>VD & Grundare</h6>
+      </aside>
     </AboutContainer>
   );
 };
@@ -35,5 +75,54 @@ const AboutContainer = styled.div`
       top: 10px;
       font-size: 1.8rem;
     }
+  }
+
+  .text-container {
+    margin: auto;
+    width: 90%;
+
+    h1 {
+      color: #2f2926;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .first-p {
+      color: #2f2926;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .second-p {
+      color: #2f2926;
+      letter-spacing: 1.5px;
+      height: 161px;
+      overflow: scroll;
+      span {
+        margin-top: 20px;
+        display: block;
+      }
+    }
+  }
+
+  aside {
+    text-align: center;
+    position: absolute;
+    bottom: 12vh;
+    left: 30vw;
+
+    img {
+      border-radius: 50%;
+    }
+
+    h6 {
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
+  }
+
+  .down-tree {
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
 `;

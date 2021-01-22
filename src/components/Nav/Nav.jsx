@@ -57,7 +57,7 @@ const NavContainer = styled.div`
   }
 
   section {
-    padding: 1.5em;
+    padding: 4em;
 
     ul {
       &::after {
@@ -85,10 +85,11 @@ const NavContainer = styled.div`
           color: orange;
           font-size: 2.5rem;
           padding-right: 10px;
+          z-index: 1;
         }
 
         .title-text {
-          font-size: 3rem;
+          font-size: 2.5rem;
         }
       }
     }
