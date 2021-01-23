@@ -1,15 +1,17 @@
 import { FaHamburger } from "react-icons/fa";
 import { useHooks } from "../../hooks/UseHooks";
+import { Nav } from '../Nav/Nav'
 
 import styled from 'styled-components';
 
 export const Hamburger = () => {
 
-  const { showNav } = useHooks();
-
+  const { navOpen,showNav } = useHooks();
+  
 
     return (
         <HamburgerContainer>
+        {navOpen && <Nav /> }
         <div className="hamburger" onClick={() => showNav()}>
         <FaHamburger className="hamburger-icon" />
       </div>

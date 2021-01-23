@@ -1,6 +1,3 @@
-import { Nav } from "../../components/Nav/Nav";
-import { useHooks } from "../../hooks/UseHooks";
-
 import styled from "styled-components";
 
 import { ReactComponent as TopTree } from "../../assets/graphics/graphics-header.svg";
@@ -8,12 +5,10 @@ import { ReactComponent as DownTree } from "../../assets/graphics/graphics-foote
 import EvaPic from "../../assets/graphics/eva-cortado.jpg";
 
 export const About = () => {
-  const { navOpen } = useHooks();
 
   return (
     <AboutContainer>
       <TopTree />
-      {navOpen && <Nav />}
       <section className="text-container">
         <h1>Our Coffee</h1>
         <p className="first-p">
