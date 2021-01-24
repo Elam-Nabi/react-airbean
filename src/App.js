@@ -13,9 +13,12 @@ import { GlobalContext } from "./context/GlobalContext";
 
 const App = () => {
   const [navOpen, setNavOpen] = useState(false);
+  const [activeCart, setActiveCart] = useState(false);
 
   return (
-    <GlobalContext.Provider value={{ navOpen, setNavOpen }}>
+    <GlobalContext.Provider
+      value={{ navOpen, setNavOpen, activeCart, setActiveCart }}
+    >
       <Router>
         <GlobalStyle />
         <Hamburger />

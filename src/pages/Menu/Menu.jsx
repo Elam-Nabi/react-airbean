@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { MenuList } from "./MenuList";
+import { AddButton } from '../../components/AddButton/AddButton';
 
 import { ReactComponent as TopTree } from "../../assets/graphics/graphics-header.svg";
 import { ReactComponent as DownTree } from "../../assets/graphics/graphics-footer.svg";
@@ -10,6 +11,7 @@ export const Menu = () => {
       <TopTree />
       <h1 className="top-text">Menu</h1>
       <section className="menu-info">
+      <AddButton />
         <MenuList />
       </section>
       <DownTree className="down-tree" />

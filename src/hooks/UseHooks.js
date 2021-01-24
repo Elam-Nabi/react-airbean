@@ -2,17 +2,21 @@ import { useContext } from "react";
 import { GlobalContext } from '../context/GlobalContext';
 
 export const useHooks = () => {
-const { navOpen, setNavOpen } = useContext(GlobalContext);
+const { navOpen, setNavOpen, activeCart, setActiveCart } = useContext(GlobalContext);
 
 const showNav = () => setNavOpen(!navOpen);
-
 const closeNav  = () => setNavOpen(false);
+
+const showActiveCart = () => setActiveCart(!activeCart)
 
 return {
     navOpen, 
     setNavOpen,
     showNav,
-    closeNav
+    closeNav,
+    activeCart,
+    setActiveCart,
+    showActiveCart
 }
 
 }
