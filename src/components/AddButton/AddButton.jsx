@@ -1,29 +1,38 @@
-import { useState, useEffect } from "react";
 import styled from "styled-components";
 
+import { useHooks } from "../../hooks/useHooks";
 import { AiFillPlusCircle } from "react-icons/ai";
 
 export const AddButton = () => {
+  const {
+    firstCoffee,
+    secondCoffee,
+    thirdCoffee,
+    fourthCoffee,
+    fifthCoffee,
+    sixthCoffee,
+  } = useHooks();
+
   return (
     <AddButtonContainer>
       <ul>
         <li>
-          <AiFillPlusCircle className="first-btn" />
+          <AiFillPlusCircle onClick={() => firstCoffee()} />
         </li>
         <li>
-          <AiFillPlusCircle className="second-btn" />
+          <AiFillPlusCircle onClick={() => secondCoffee()} />
         </li>
         <li>
-          <AiFillPlusCircle className="third-btn" />
+          <AiFillPlusCircle onClick={() => thirdCoffee()} />
         </li>
         <li>
-          <AiFillPlusCircle className="forth-btn" />
+          <AiFillPlusCircle onClick={() => fourthCoffee()} />
         </li>
         <li>
-          <AiFillPlusCircle className="fifth-btn" />
+          <AiFillPlusCircle onClick={() => fifthCoffee()} />
         </li>
         <li>
-          <AiFillPlusCircle className="sixth-btn" />
+          <AiFillPlusCircle onClick={() => sixthCoffee()} />
         </li>
       </ul>
     </AddButtonContainer>

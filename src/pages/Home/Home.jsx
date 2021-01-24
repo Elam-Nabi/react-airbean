@@ -5,7 +5,7 @@ import { ReactComponent as TreeLeft } from "../../assets/graphics/intro-graphic-
 import { ReactComponent as TreeRight } from "../../assets/graphics/intro-graphic-right.svg";
 
 import { Nav } from "../../components/Nav/Nav";
-import { useHooks } from '../../hooks/UseHooks'
+import { useHooks } from '../../hooks/useHooks'
 
 
 export const Home = () => {

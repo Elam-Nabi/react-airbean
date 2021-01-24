@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { Home } from "./pages/Home/Home";
 import { Menu } from "./pages/Menu/Menu";
@@ -14,10 +14,20 @@ import { GlobalContext } from "./context/GlobalContext";
 const App = () => {
   const [navOpen, setNavOpen] = useState(false);
   const [activeCart, setActiveCart] = useState(false);
+  const [cart, setCart] = useState([]);
+
+  useEffect(() => console.log(cart), [cart]);
 
   return (
     <GlobalContext.Provider
-      value={{ navOpen, setNavOpen, activeCart, setActiveCart }}
+      value={{
+        navOpen,
+        setNavOpen,
+        activeCart,
+        setActiveCart,
+        cart,
+        setCart,
+      }}
     >
       <Router>
         <GlobalStyle />

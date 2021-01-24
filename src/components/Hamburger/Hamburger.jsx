@@ -1,5 +1,5 @@
 import { FaHamburger } from "react-icons/fa";
-import { useHooks } from "../../hooks/UseHooks";
+import { useHooks } from "../../hooks/useHooks";
 import { Nav } from '../Nav/Nav'
 
 import styled from 'styled-components';
