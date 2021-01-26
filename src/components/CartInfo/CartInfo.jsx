@@ -2,12 +2,15 @@ import styled from "styled-components";
 import { useHooks } from "../../hooks/useHooks";
 
 import { AiFillCaretUp } from "react-icons/ai";
-
+import { AiOutlineClose } from "react-icons/ai";
 export const CartInfo = () => {
   const { cart, activeCart, closeCart } = useHooks();
 
   return (
-    <CartContainer onClick={() => closeCart()}>
+    <CartContainer>
+      <CloseButton className="close">
+        <AiOutlineClose className="close__icon" onClick={() => closeCart()} />
+      </CloseButton>
       <AiFillCaretUp className="up-pointer" />
       {activeCart > 0 && (
         <section className="cart-page">
@@ -22,7 +25,7 @@ export const CartInfo = () => {
           ))}
         </section>
       )}
-      <button>Take my money!</button>
+      <button className="cart-button">Take my money!</button>
     </CartContainer>
   );
 };
@@ -56,5 +59,37 @@ const CartContainer = styled.div`
     justify-content: space-evenly;
     align-items: center;
     background: #fff;
+  }
+
+  .cart-button {
+    color: #fff;
+    font-weight: bold;
+    background: #2f2926;
+    height: 55px;
+    width: 210px;
+    outline: none;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.3rem;
+    position: absolute;
+    top: 80vh;
+    left: 22vw;
+  }
+`;
+
+const CloseButton = styled.aside`
+  height: 50px;
+  width: 50px;
+  background: #2f2926;
+  border-radius: 50%;
+  right: 15px;
+  top: 15px;
+  position: absolute;
+  .close__icon {
+    position: relative;
+    right: -10px;
+    top: 10px;
+    color: #fff;
+    font-size: 1.8rem;
   }
 `;

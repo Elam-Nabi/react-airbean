@@ -59,6 +59,7 @@ const MenuContainer = styled.div`
       background: #e5674e;
       top: -7px;
       right: -5px;
+      z-index: 3;
       position: absolute;
 
       span {
