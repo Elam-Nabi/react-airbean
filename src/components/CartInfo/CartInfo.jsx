@@ -1,19 +1,14 @@
 import styled from "styled-components";
 import { useHooks } from "../../hooks/useHooks";
 
+import { CartEmptyInfo } from "../../components/CartEmpty/CartEmpty";
+import { CartFullInfo } from "../../components/CartFull/CartFull";
+
 import { AiFillCaretUp } from "react-icons/ai";
 import { AiOutlineClose } from "react-icons/ai";
-import { IoMdRemoveCircle } from "react-icons/io";
 
 export const CartInfo = () => {
-  const {
-    cart,
-    activeCart,
-    closeCart,
-    removeItem,
-    cartEmpty,
-    showEmptyCart,
-  } = useHooks();
+  const { cart, activeCart, closeCart, removeItem } = useHooks();
 
   return (
     <CartContainer>
@@ -21,19 +16,17 @@ export const CartInfo = () => {
         <AiOutlineClose className="close__icon" onClick={() => closeCart()} />
       </CloseButton>
       <AiFillCaretUp className="up-pointer" />
-      {cartEmpty ? "Cart empty" : <h1 className="order-text">Your orders</h1>}
+      {cart.length > 0 ? <CartFullInfo /> : <CartEmptyInfo />}
       {activeCart && (
         <section className="cart-page">
           {cart.map((c, idx) => (
             <div key={c.id}>
               <button
                 className="remove-button"
-                onClick={(e) => {
-                  removeItem(e, c.id);
-                  showEmptyCart();
-                }}
+                onClick={(e) => removeItem(e, c.id)}
               >
-                Empty cart
+                {" "}
+                Empty cart{" "}
               </button>
               <div className="info-container" key={idx}>
                 <h1 className="coffee-type">{c.type}</h1>
