@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { NavData } from "./NavData";
 import { GrClose } from "react-icons/gr";
 
-import { useHooks } from "../../hooks/UseHooks";
+import { useHooks } from "../../hooks/useHooks";
 
 export const Nav = () => {
   const { closeNav } = useHooks();
