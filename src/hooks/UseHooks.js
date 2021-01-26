@@ -2,13 +2,21 @@ import { useContext } from "react";
 import { GlobalContext } from '../context/GlobalContext';
 
 export const useHooks = () => {
-const { navOpen, setNavOpen, activeCart, setActiveCart, cart, setCart } = useContext(GlobalContext);
+const { navOpen, setNavOpen, activeCart, setActiveCart, cart, setCart, cartEmpty, setCartEmpty } = useContext(GlobalContext);
 
 const showNav = () => setNavOpen(!navOpen);
 const closeNav  = () => setNavOpen(false);
 
 const showActiveCart = () => setActiveCart(!activeCart)
 const closeCart = () => setActiveCart(false)
+
+const removeItem = (e, id) => {
+    e.preventDefault();
+    const remove = cart.filter((c) => c.id !== id);
+    setCart(remove);
+}
+
+const showEmptyCart = () => setCartEmpty(!cartEmpty);
 
 const firstCoffee = () => {
     const firstInfo = {
@@ -75,7 +83,9 @@ return {
     fourthCoffee,
     fifthCoffee,
     sixthCoffee,
-    closeCart
+    closeCart,
+    removeItem,
+    showEmptyCart
 }
 
 }

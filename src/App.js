@@ -15,6 +15,7 @@ const App = () => {
   const [navOpen, setNavOpen] = useState(false);
   const [activeCart, setActiveCart] = useState(false);
   const [cart, setCart] = useState([]);
+  const [cartEmpty, setCartEmpty] = useState(false);
 
   useEffect(() => console.log(cart), [cart]);
 
@@ -27,6 +28,8 @@ const App = () => {
         setActiveCart,
         cart,
         setCart,
+        cartEmpty,
+        setCartEmpty,
       }}
     >
       <Router>

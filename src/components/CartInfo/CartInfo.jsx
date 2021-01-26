@@ -3,8 +3,17 @@ import { useHooks } from "../../hooks/useHooks";
 
 import { AiFillCaretUp } from "react-icons/ai";
 import { AiOutlineClose } from "react-icons/ai";
+import { IoMdRemoveCircle } from "react-icons/io";
+
 export const CartInfo = () => {
-  const { cart, activeCart, closeCart } = useHooks();
+  const {
+    cart,
+    activeCart,
+    closeCart,
+    removeItem,
+    cartEmpty,
+    showEmptyCart,
+  } = useHooks();
 
   return (
     <CartContainer>
@@ -12,12 +21,21 @@ export const CartInfo = () => {
         <AiOutlineClose className="close__icon" onClick={() => closeCart()} />
       </CloseButton>
       <AiFillCaretUp className="up-pointer" />
-      {activeCart > 0 && (
+      {cartEmpty ? "Cart empty" : <h1 className="order-text">Your orders</h1>}
+      {activeCart && (
         <section className="cart-page">
           {cart.map((c, idx) => (
             <div key={c.id}>
-              <div key={idx}>
-                <h1 className="order-text">Your orders</h1>
+              <button
+                className="remove-button"
+                onClick={(e) => {
+                  removeItem(e, c.id);
+                  showEmptyCart();
+                }}
+              >
+                Empty cart
+              </button>
+              <div className="info-container" key={idx}>
                 <h1 className="coffee-type">{c.type}</h1>
                 <h1 className="coffe-price">{c.price}</h1>
               </div>
@@ -39,6 +57,47 @@ const CartContainer = styled.div`
   background: rgba(0, 0, 0, 0.7);
   position: fixed;
 
+  .order-text {
+    color: #2f2926;
+    top: 12vh;
+    right: 22vw;
+    font-size: 2.2rem;
+    position: absolute;
+    z-index: 3;
+  }
+
+  .cart-page {
+    position: absolute;
+
+    .remove-button {
+      position: absolute;
+      bottom: 18vh;
+      border-radius: 25px;
+      outline: none;
+      border: none;
+      color: #2f2926;
+      font-size: 1.3rem;
+      font-weight: bold;
+      left: 17vw;
+      height: 50px;
+      width: 210px;
+    }
+    .info-container {
+      height: 50%;
+
+      .coffee-type {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #2f2926;
+      }
+
+      .coffe-price {
+        color: #2f2926;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+    }
+  }
   .up-pointer {
     position: absolute;
     color: #fff;
